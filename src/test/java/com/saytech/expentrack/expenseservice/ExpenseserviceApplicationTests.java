@@ -1,4 +1,4 @@
-package com.expentrack.expenseservice;
+package com.saytech.expentrack.expenseservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
