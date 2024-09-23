@@ -12,7 +12,7 @@ public class Expense {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private BigDecimal amount;
+    private Double amount;
     private String category;
     private String description;
 
@@ -33,7 +33,7 @@ public class Expense {
     }
 
     // Constructor for required fields
-    public Expense(BigDecimal amount, String category, String description, LocalDate date) {
+    public Expense(Double amount, String category, String description, LocalDate date) {
         this();
         this.amount = amount;
         this.category = category;
@@ -49,11 +49,11 @@ public class Expense {
         this.id = id;
     }
 
-    public BigDecimal getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(BigDecimal amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
         this.updatedAt = LocalDateTime.now(); // Update timestamp on modification
     }

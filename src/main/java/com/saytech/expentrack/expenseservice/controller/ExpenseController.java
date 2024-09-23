@@ -14,15 +14,11 @@ public class ExpenseController {
     @Autowired
     private ExpenseService expenseService;
 
-    @GetMapping
-    public List<ExpenseDTO> getAllExpenses() {
-        return expenseService.getAllExpenses();
-    }
-
     // Get all expenses for a specific user
     @GetMapping("/user/{userId}")
-    public List<ExpenseDTO> getAllExpensesForUser(@PathVariable Long userId) {
-        return expenseService.getAllExpensesForUser(userId);
+    public ResponseEntity<List<ExpenseDTO>> getAllExpensesForUser(@PathVariable Long userId) {
+        List<ExpenseDTO> expenses = expenseService.getAllExpensesForUser(userId);
+        return ResponseEntity.ok(expenses);
     }
 
     @PostMapping
@@ -33,17 +29,13 @@ public class ExpenseController {
 
     @GetMapping("/{id}")
     public ResponseEntity<ExpenseDTO> getExpenseById(@PathVariable Long id) {
-        return expenseService.getExpenseById(id)
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+        ExpenseDTO expenseDTO = expenseService.getExpenseById(id);
+        return ResponseEntity.ok(expenseDTO);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<ExpenseDTO> updateExpense(@PathVariable Long id, @RequestBody ExpenseDTO expenseDTO) {
         ExpenseDTO updatedExpense = expenseService.updateExpense(id, expenseDTO);
-        if (updatedExpense == null) {
-            return ResponseEntity.notFound().build();
-        }
         return ResponseEntity.ok(updatedExpense);
     }
 

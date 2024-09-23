@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 public class ExpenseDTO {
     private Long id;
-    private BigDecimal amount;
+    private Double amount;
     private String category;
     private LocalDate date;
     private String description;
@@ -20,11 +20,11 @@ public class ExpenseDTO {
         this.id = id;
     }
 
-    public BigDecimal getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(BigDecimal amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 
