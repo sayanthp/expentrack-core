@@ -9,7 +9,6 @@ public class ExpenseDTO {
     private String category;
     private LocalDate date;
     private String description;
-
     private Long userId;
 
     public Long getId() {

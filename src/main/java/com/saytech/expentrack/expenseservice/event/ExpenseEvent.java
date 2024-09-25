@@ -6,10 +6,13 @@ public class ExpenseEvent {
     private Double amount;
     private String category;
 
-    public ExpenseEvent(Long userId, Double amount, String category) {
+    private String type;
+
+    public ExpenseEvent(Long userId, Double amount, String category, String type) {
         this.userId = userId;
         this.amount = amount;
         this.category = category;
+        this.type = type;
     }
 
     public Long getUserId() {
@@ -34,5 +37,13 @@ public class ExpenseEvent {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
